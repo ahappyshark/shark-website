@@ -9,6 +9,7 @@ export default function App() {
     const saved = localStorage.getItem('theme')
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
     setDark(saved ? saved === 'dark' : prefersDark)
+    setMounted(true)
   }, [])
 
   return (
@@ -24,13 +25,19 @@ export default function App() {
         </div>
         <button
           className='mode-toggle'
-          onClick={() => setDark((d) => !d)}
+          onClick={() => {
+            const next = !dark
+            setDark(next)
+            localStorage.setItem('theme', next ? 'dark' : 'light')
+          }}
           aria-label='Toggle dark mode'
         >
           {dark ? ' LIGHT' : ' DARK'}
         </button>
       </header>
       <div className='rule thick' />
+
+      {/* Hero */}
       <section className='hero'>
         <div className='hero-index'>001</div>
         <div className='hero-body'>
@@ -43,16 +50,30 @@ export default function App() {
             Independent game developer & musician operating under Happy Shark Studios.
           </p>
         </div>
+        <div className='hero-aside'>
+          <p className='aside-label'>DOMAIN</p>
+          <p className='aside-val'>theshark.me</p>
+          <p className='aside-label'>STUDIO</p>
+          <p className='aside-val'>HAPPY SHARK STUDIOS</p>
+          <p className='aside-label'>STATUS</p>
+          <p className='aside-val'>BUILDING...</p>
+        </div>
       </section>
       <div className='rule' />
+
+      {/* Links */}
       <section className='links-section'>
 
       </section>
       <div className='rule' />
+
+      {/* Works */}
       <section className='works-section'>
 
       </section>
       <div className='rule thick' />
+
+      {/* Footer */}
       <footer className='footer'>
         <span>© HAPPY SHARK STUDIOS</span>
         <span className='footer-mid'>THESHARK.ME</span>
