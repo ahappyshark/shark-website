@@ -49,6 +49,11 @@
   --card-hover-fg: #080808;
   --tag-bg: #00ff88;
   --tag-fg: #080808;
+  --rule-thick: 3px;
+  --rule-thin: 1px;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Newsreader', serif;
+  --font-mono: 'Fragment Mono', monospace;
   --status-active: #00ff88;
   --status-dev: #ff2d78;
   --status-upcoming: #888;
